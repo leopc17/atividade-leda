@@ -3,6 +3,7 @@ import entities.Filme;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import static utils.Ordenacao.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,11 +13,12 @@ public class Main {
         Filme f3 = new Filme("C", 3, 1090);
         Filme f4 = new Filme("D", 1, 1899);
         Filme f5 = new Filme("E", 5, 2024);
+        Filme f6 = new Filme("F", 5, 2024);
 
-        ArrayList<Filme> myList = new ArrayList<>(Arrays.asList(f1, f2, f3, f4, f5));
+        Filme[] vetor = {f1, f2, f3, f4, f5, f6};
 
-        Collections.sort(myList);
+        insertionSort(vetor);
 
-        for (Filme f : myList) System.out.println(f);
+        for (Filme f : vetor) System.out.println(f);
     }
 }
