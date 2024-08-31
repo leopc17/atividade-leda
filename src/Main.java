@@ -1,10 +1,13 @@
 import entities.Filme;
+import interfaces.Filme_IF;
 import interfaces.Ordenacao_IF;
 import utils.Ordenacao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+
 import static utils.Ordenacao.*;
 
 public class Main {
@@ -22,7 +25,7 @@ public class Main {
 
         System.out.println(o.checaVetorOrdenado(vetor));
 
-        o.insertionSort(vetor);
+        o.quickSort(vetor);
 
         for (Filme f : vetor) System.out.println(f);
 
