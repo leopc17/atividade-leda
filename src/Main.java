@@ -1,4 +1,6 @@
 import entities.Filme;
+import interfaces.Ordenacao_IF;
+import utils.Ordenacao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +9,7 @@ import static utils.Ordenacao.*;
 
 public class Main {
     public static void main(String[] args) {
+        Ordenacao_IF o = new Ordenacao();
 
         Filme f1 = new Filme("A", 5, 2020);
         Filme f2 = new Filme("B", 4, 2090);
@@ -17,8 +20,12 @@ public class Main {
 
         Filme[] vetor = {f1, f2, f3, f4, f5, f6};
 
-        insertionSort(vetor);
+        System.out.println(o.checaVetorOrdenado(vetor));
+
+        o.insertionSort(vetor);
 
         for (Filme f : vetor) System.out.println(f);
+
+        System.out.println(o.checaVetorOrdenado(vetor));
     }
 }
