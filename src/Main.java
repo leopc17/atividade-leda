@@ -1,4 +1,6 @@
+import entities.Busca;
 import entities.Filme;
+import interfaces.Busca_IF;
 import interfaces.Filme_IF;
 import interfaces.Ordenacao_IF;
 import utils.Ordenacao;
@@ -13,6 +15,7 @@ import static utils.Ordenacao.*;
 public class Main {
     public static void main(String[] args) {
         Ordenacao_IF o = new Ordenacao();
+        Busca_IF b = new Busca();
 
         Filme f1 = new Filme("A", 5, 2020);
         Filme f2 = new Filme("B", 4, 2090);
@@ -30,5 +33,18 @@ public class Main {
         for (Filme f : vetor) System.out.println(f);
 
         System.out.println(o.checaVetorOrdenado(vetor));
+
+        try {
+            Filme f = b.buscaBinaria_iterativa(vetor, 5);
+            System.out.println(f);
+            f = b.buscaBinaria_recursiva(vetor, 5);
+            System.out.println(f);
+            f = b.buscaLinear_iterativa(vetor, 5);
+            System.out.println(f);
+            f = b.buscaLinear_recursiva(vetor, 5);
+            System.out.println(f);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
