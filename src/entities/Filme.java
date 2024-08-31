@@ -1,6 +1,8 @@
 package entities;
 
-public class Filme implements Comparable<Filme> {
+import interfaces.Filme_IF;
+
+public class Filme implements Filme_IF {
     private String nome;
     private int nota;
     private int ano;
@@ -36,13 +38,13 @@ public class Filme implements Comparable<Filme> {
     }
 
     @Override
-    public int compareTo(Filme o) {
-        if (this.nota != o.nota) {
-            return Integer.compare(this.nota, o.nota) * (-1); // provável gambiarra
-        } else if (this.ano != o.ano) {
-            return Integer.compare(this.ano, o.ano);
+    public int compareTo(Filme_IF o) {
+        if (this.nota != o.getNota()) {
+            return Integer.compare(this.nota, o.getNota()) * (-1); // provável gambiarra
+        } else if (this.ano != o.getAno()) {
+            return Integer.compare(this.ano, o.getAno());
         } else {
-            return this.nome.compareTo(o.nome);
+            return this.nome.compareTo(o.getNome());
         }
     }
 
