@@ -25,7 +25,7 @@ public class Main {
 
         System.out.println(o.checaVetorOrdenado(vetor));
 
-        o.quickSort(vetor);
+        o.mergeSort(vetor);
 
         for (Filme f : vetor) System.out.println(f);
 

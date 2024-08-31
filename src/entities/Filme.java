@@ -40,12 +40,12 @@ public class Filme implements Filme_IF {
     @Override
     public int compareTo(Filme_IF o) {
         if (this.nota != o.getNota()) {
-            return Integer.compare(this.nota, o.getNota()) * (-1); // provável gambiarra
-        } else if (this.ano != o.getAno()) {
-            return Integer.compare(this.ano, o.getAno());
-        } else {
-            return this.nome.compareTo(o.getNome());
+            return Integer.compare(o.getNota(), this.nota);
         }
+        if (this.ano != o.getAno()) {
+            return Double.compare(o.getAno(), this.ano);
+        }
+        return this.nome.compareTo(o.getNome());
     }
 
     @Override

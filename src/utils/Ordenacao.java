@@ -98,7 +98,56 @@ public class Ordenacao implements Ordenacao_IF {
 
     @Override
     public void mergeSort(Filme[] filmes) {
+        int tam = filmes.length;
+        if(tam <= 1)
+            return;
+        int meio = tam / 2;
+        Filme[] left = new Filme[meio];
+        Filme[] right = new Filme[tam - meio];
+        int i = 0;
+        int j = 0;
+        for(; i < tam; i++){
+            if(i < meio){
+                left[i] = filmes[i];
+            }
+            else{
+                right[j] = filmes[i];
+                j++;
+            }
+        }
+        mergeSort(left);
+        mergeSort(right);
+        merge(left, right, filmes);
+    }
 
+    public static void merge(Filme[] left, Filme[] right, Filme[] filmes){
+        int leftSize = filmes.length / 2;
+        int rightSize = filmes.length - leftSize;
+        int i = 0,l = 0, r = 0;
+
+        while(l < leftSize && r < rightSize){
+            if(left[l].compareTo(right[r]) <= 0){
+                filmes[i] = left[l];
+                i++;
+                l++;
+            }else{
+                filmes[i] = right[r];
+                i++;
+                r++;
+            }
+        }
+
+        while(l < leftSize){
+            filmes[i] = left[l];
+            i++;
+            l++;
+        }
+
+        while (r < rightSize){
+            filmes[i] = right[r];
+            i++;
+            r++;
+        }
     }
 
     @Override
