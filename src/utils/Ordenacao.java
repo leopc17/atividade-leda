@@ -38,7 +38,7 @@ public class Ordenacao implements Ordenacao_IF {
             Filme chave = vetor[j];
             int i = j - 1;
 
-            while (i >= 0 & vetor[i].compareTo(chave) > 0) {
+            while (i >= 0 && vetor[i].compareTo(chave) > 0) {
                 vetor[i + 1] = vetor[i];
                 i = i - 1;
             }
