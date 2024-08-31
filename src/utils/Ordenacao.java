@@ -152,6 +152,30 @@ public class Ordenacao implements Ordenacao_IF {
 
     @Override
     public void countingSort(Filme[] filmes) {
+        int n = filmes.length;
+        final int k = 5;
 
+        int[] C = new int[k + 1];
+
+        for (int i = 0; i <= k; i++) {
+            C[i] = 0;
+        }
+        for (int j = 0; j < n; j++) {
+            C[(int) filmes[j].getNota()]++;
+        }
+
+        for (int i = k - 1; i >= 0; i--) {
+            C[i] += C[i + 1];
+        }
+
+        Filme[] B = new Filme[n];
+        for (int j = n - 1; j >= 0; j--) {
+            B[C[(int) filmes[j].getNota()] - 1] = filmes[j];
+            C[(int) filmes[j].getNota()]--;
+        }
+
+        for (int i = 0; i < n; i++) {
+            filmes[i] = B[i];
+        }
     }
 }
