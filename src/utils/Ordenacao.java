@@ -87,7 +87,13 @@ public class Ordenacao implements Ordenacao_IF {
 
     @Override
     public void quickSortRandom(Filme[] filmes) {
+        embaralhar(filmes);
+        quickSort(filmes, 0, filmes.length - 1);
+    }
 
+    private void embaralhar(Filme[] filmes) {
+        List<Filme> lista = Arrays.asList(filmes);
+        Collections.shuffle(lista);
     }
 
     @Override
