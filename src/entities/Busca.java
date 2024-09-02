@@ -6,6 +6,10 @@ public class Busca implements Busca_IF {
 
     @Override
     public boolean checaVetorOrdenado(Filme[] filmes) {
+        if (filmes == null || filmes.length == 1) {
+            return true;
+        }
+
         for (int i = 0; i < filmes.length - 1; i++) {
             if (filmes[i].compareTo(filmes[i + 1]) > 0) {
                 return false;
