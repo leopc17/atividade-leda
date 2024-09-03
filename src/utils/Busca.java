@@ -1,5 +1,6 @@
-package entities;
+package utils;
 
+import entities.Filme;
 import interfaces.Busca_IF;
 
 public class Busca implements Busca_IF {

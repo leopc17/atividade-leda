@@ -1,16 +1,8 @@
-import entities.Busca;
+import utils.Busca;
 import entities.Filme;
 import interfaces.Busca_IF;
-import interfaces.Filme_IF;
 import interfaces.Ordenacao_IF;
 import utils.Ordenacao;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import static utils.Ordenacao.*;
 
 public class Main {
     public static void main(String[] args) {
