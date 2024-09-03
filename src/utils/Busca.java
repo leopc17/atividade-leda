@@ -21,12 +21,17 @@ public class Busca implements Busca_IF {
 
     @Override
     public Filme buscaLinear_iterativa(Filme[] filmes, int nota) throws Exception {
+        if (nota < 0) {
+            throw new Exception("Nota Negativa");
+        }
+
         for (Filme filme : filmes) {
             if (filme.getNota() == nota) {
                 return filme;
             }
         }
-        throw new Exception("Filme não encontrado");
+
+        return null;
     }
 
     @Override
@@ -46,6 +51,10 @@ public class Busca implements Busca_IF {
 
     @Override
     public Filme buscaBinaria_iterativa(Filme[] filmes, int nota) throws Exception {
+        if (nota < 0) {
+            throw new Exception("Nota Negativa");
+        }
+
         int inicio = 0;
         int fim = filmes.length - 1;
 
@@ -59,17 +68,22 @@ public class Busca implements Busca_IF {
                 fim = meio - 1;
             }
         }
-        throw new Exception("Filme não encontrado");
+
+        return null;
     }
 
     @Override
     public Filme buscaBinaria_recursiva(Filme[] filmes, int nota) throws Exception {
+        if (nota < 0) {
+            throw new Exception("Nota Negativa");
+        }
+
         return buscaBinaria_recursiva_aux(filmes, nota, 0, filmes.length - 1);
     }
 
     private Filme buscaBinaria_recursiva_aux(Filme[] filmes, int nota, int inicio, int fim) throws Exception {
         if (inicio > fim) {
-            throw new Exception("Filme não encontrado");
+            return null;
         }
         int meio = (inicio + fim) / 2;
         if (filmes[meio].getNota() == nota) {
@@ -83,6 +97,10 @@ public class Busca implements Busca_IF {
 
     @Override
     public Filme buscaLinear_iterativa_duasPontas(Filme[] filmes, int nota) throws Exception {
+        if (nota < 0) {
+            throw new Exception("Filme não encontrado");
+        }
+
         int inicio = 0;
         int fim = filmes.length - 1;
 
@@ -96,6 +114,7 @@ public class Busca implements Busca_IF {
             inicio++;
             fim--;
         }
-        throw new Exception("Filme não encontrado");
+
+        return null;
     }
 }
