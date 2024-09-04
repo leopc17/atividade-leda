@@ -28,12 +28,33 @@ public class Ordenacao implements Ordenacao_IF {
 
     @Override
     public void bubbleSort(Filme[] filmes) {
-
+        for (int i = 0; i < filmes.length - 1; i++) {
+            for (int j = 0; j < filmes.length - 1 - i; j++) {
+                if (filmes[j].compareTo(filmes[j + 1]) > 0) {
+                    troca(filmes, j, j + 1);
+                }
+            }
+        }
     }
 
     @Override
     public void selectionSort(Filme[] filmes) {
+        for (int i = 0; i < filmes.length - 1; i++) {
+            int menor = i;
 
+            for (int j = i + 1; j < filmes.length; j++) {
+                if (filmes[j].compareTo(filmes[menor]) < 0) {
+                    menor = j;
+                }
+            }
+            troca(filmes, i, menor);
+        }
+    }
+
+    private static void troca(Filme[] vetor, int p1, int p2) {
+        Filme aux = vetor[p1];
+        vetor[p1] = vetor[p2];
+        vetor[p2] = aux;
     }
 
     @Override
