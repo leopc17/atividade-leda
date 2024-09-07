@@ -82,6 +82,10 @@ public class Busca implements Busca_IF {
     }
 
     private Filme buscaBinaria_recursiva(Filme[] filmes, int nota, int inicio, int fim) throws Exception {
+        if (nota < 0) {
+            throw new Exception("Nota Negativa");
+        }
+
         if (inicio > fim) {
             return null;
         }
