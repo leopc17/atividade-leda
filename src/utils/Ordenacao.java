@@ -4,10 +4,7 @@ import entities.Filme;
 import interfaces.Filme_IF;
 import interfaces.Ordenacao_IF;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Ordenacao implements Ordenacao_IF {
 
@@ -95,19 +92,13 @@ public class Ordenacao implements Ordenacao_IF {
             } else if (A[j].compareTo(p) > 0) {
                 j--;
             } else {
-                swap(A, i, j);
+                troca(A, i, j);
                 i++;
                 j--;
             }
         }
-        swap(A, left, j);
+        troca(A, left, j);
         return j; // posição do pivot
-    }
-
-    private void swap(Filme[] A, int i, int j) {
-        Filme temp = A[i];
-        A[i] = A[j];
-        A[j] = temp;
     }
 
     @Override
@@ -116,9 +107,12 @@ public class Ordenacao implements Ordenacao_IF {
         quickSort(filmes, 0, filmes.length - 1);
     }
 
+    Random r = new Random();
     private void embaralhar(Filme[] filmes) {
-        List<Filme> lista = Arrays.asList(filmes);
-        Collections.shuffle(lista);
+        for (int i = 0; i < filmes.length; i++) {
+            int n = r.nextInt(filmes.length);
+            troca(filmes, i, n);
+        }
     }
 
     @Override
