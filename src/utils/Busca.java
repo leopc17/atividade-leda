@@ -36,6 +36,10 @@ public class Busca implements Busca_IF {
 
     @Override
     public Filme buscaLinear_recursiva(Filme[] filmes, int nota) throws Exception {
+        if (nota < 0) {
+            throw new Exception("Nota Negativa");
+        }
+
         return buscaLinear_recursiva(filmes, nota, 0);
     }
 
@@ -102,7 +106,7 @@ public class Busca implements Busca_IF {
     @Override
     public Filme buscaLinear_iterativa_duasPontas(Filme[] filmes, int nota) throws Exception {
         if (nota < 0) {
-            throw new Exception("Filme não encontrado");
+            throw new Exception("Nota Negativa");
         }
 
         int inicio = 0;
