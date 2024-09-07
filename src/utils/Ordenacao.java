@@ -179,8 +179,9 @@ public class Ordenacao implements Ordenacao_IF {
         for (int i = 0; i <= k; i++) {
             C[i] = 0;
         }
-        for (int j = 0; j < n; j++) {
-            C[(int) filmes[j].getNota()]++;
+
+        for (int i = 0; i < n; i++) {
+            C[filmes[i].getNota()]++;
         }
 
         for (int i = k - 1; i >= 0; i--) {
@@ -189,8 +190,8 @@ public class Ordenacao implements Ordenacao_IF {
 
         Filme[] B = new Filme[n];
         for (int j = n - 1; j >= 0; j--) {
-            B[C[(int) filmes[j].getNota()] - 1] = filmes[j];
-            C[(int) filmes[j].getNota()]--;
+            B[C[filmes[j].getNota()] - 1] = filmes[j];
+            C[filmes[j].getNota()]--;
         }
 
         for (int i = 0; i < n; i++) {
