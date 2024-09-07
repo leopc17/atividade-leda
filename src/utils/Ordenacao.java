@@ -48,7 +48,7 @@ public class Ordenacao implements Ordenacao_IF {
         }
     }
 
-    private static void troca(Filme[] vetor, int p1, int p2) {
+    private void troca(Filme[] vetor, int p1, int p2) {
         Filme aux = vetor[p1];
         vetor[p1] = vetor[p2];
         vetor[p2] = aux;
@@ -139,7 +139,7 @@ public class Ordenacao implements Ordenacao_IF {
         merge(left, right, filmes);
     }
 
-    public static void merge(Filme[] left, Filme[] right, Filme[] filmes){
+    public void merge(Filme[] left, Filme[] right, Filme[] filmes){
         int leftSize = filmes.length / 2;
         int rightSize = filmes.length - leftSize;
         int i = 0,l = 0, r = 0;
