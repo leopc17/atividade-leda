@@ -36,17 +36,17 @@ public class Busca implements Busca_IF {
 
     @Override
     public Filme buscaLinear_recursiva(Filme[] filmes, int nota) throws Exception {
-        return buscaLinear_recursiva_aux(filmes, nota, 0);
+        return buscaLinear_recursiva(filmes, nota, 0);
     }
 
-    private Filme buscaLinear_recursiva_aux(Filme[] filmes, int nota, int index) throws Exception {
+    private Filme buscaLinear_recursiva(Filme[] filmes, int nota, int index) throws Exception {
         if (index >= filmes.length) {
             throw new Exception("Filme não encontrado");
         }
         if (filmes[index].getNota() == nota) {
             return filmes[index];
         }
-        return buscaLinear_recursiva_aux(filmes, nota, index + 1);
+        return buscaLinear_recursiva(filmes, nota, index + 1);
     }
 
     @Override
@@ -78,10 +78,10 @@ public class Busca implements Busca_IF {
             throw new Exception("Nota Negativa");
         }
 
-        return buscaBinaria_recursiva_aux(filmes, nota, 0, filmes.length - 1);
+        return buscaBinaria_recursiva(filmes, nota, 0, filmes.length - 1);
     }
 
-    private Filme buscaBinaria_recursiva_aux(Filme[] filmes, int nota, int inicio, int fim) throws Exception {
+    private Filme buscaBinaria_recursiva(Filme[] filmes, int nota, int inicio, int fim) throws Exception {
         if (inicio > fim) {
             return null;
         }
@@ -89,9 +89,9 @@ public class Busca implements Busca_IF {
         if (filmes[meio].getNota() == nota) {
             return filmes[meio];
         } else if (filmes[meio].getNota() < nota) {
-            return buscaBinaria_recursiva_aux(filmes, nota, meio + 1, fim);
+            return buscaBinaria_recursiva(filmes, nota, meio + 1, fim);
         } else {
-            return buscaBinaria_recursiva_aux(filmes, nota, inicio, meio - 1);
+            return buscaBinaria_recursiva(filmes, nota, inicio, meio - 1);
         }
     }
 

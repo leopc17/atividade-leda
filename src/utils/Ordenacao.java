@@ -107,7 +107,7 @@ public class Ordenacao implements Ordenacao_IF {
         quickSort(filmes, 0, filmes.length - 1);
     }
 
-    Random r = new Random();
+    private Random r = new Random();
     private void embaralhar(Filme[] filmes) {
         for (int i = 0; i < filmes.length; i++) {
             int n = r.nextInt(filmes.length);
