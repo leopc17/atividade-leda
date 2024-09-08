@@ -40,7 +40,7 @@ public class Filme implements Filme_IF {
     @Override
     public int compareTo(Filme_IF o) {
         if (this.nota != o.getNota()) {
-            return Double.compare(this.nota, o.getNota()) * (-1);
+            return Integer.compare(this.nota, o.getNota()) * (-1);
         } else if (this.ano != o.getAno()) {
             return Integer.compare(this.ano, o.getAno());
         } else {
