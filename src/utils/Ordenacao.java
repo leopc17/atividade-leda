@@ -108,7 +108,7 @@ public class Ordenacao implements Ordenacao_IF {
     }
 
     private Random r = new Random();
-    private void embaralhar(Filme[] filmes) {
+    public void embaralhar(Filme[] filmes) {
         for (int i = 0; i < filmes.length; i++) {
             int n = r.nextInt(filmes.length);
             troca(filmes, i, n);
@@ -196,6 +196,20 @@ public class Ordenacao implements Ordenacao_IF {
 
         for (int i = 0; i < n; i++) {
             filmes[i] = B[i];
+        }
+    }
+
+    public void inverterVetor(Filme[] vetor) {
+        int inicio = 0;
+        int fim = vetor.length - 1;
+
+        while (inicio < fim) {
+            Filme temp = vetor[inicio];
+            vetor[inicio] = vetor[fim];
+            vetor[fim] = temp;
+
+            inicio++;
+            fim--;
         }
     }
 }
