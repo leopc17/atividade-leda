@@ -166,7 +166,7 @@ public class Main {
     }
 
     public static void testeBusca() {
-        caminho = "./src/busca.csv";
+        caminho = "./src/buscaIni.csv";
 
         Filme[] v1 = gerarFilmes(5_000);
 
@@ -174,7 +174,7 @@ public class Main {
             v1[i].setNota(1);
         }
 
-        v1[4999].setNota(5);
+        v1[0].setNota(5);
 
         long[] aux = new long[1];
         aux[0] = testeLinearIterativo(v1, 5);
