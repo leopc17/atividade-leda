@@ -13,84 +13,86 @@ public class Main {
     static String caminho = "";
 
     public static void main(String[] args) {
-        Ordenacao o = new Ordenacao();
+            testeBusca();
 
-        Filme[] v1 = gerarFilmes(10_000);
-        Filme[] v2 = gerarFilmes(20_000);
-        Filme[] v3 = gerarFilmes(50_000);
-        Filme[] v4 = gerarFilmes(100_000);
-        Filme[] v5 = gerarFilmes(200_000);
-
-        // teste com vetor em ordem aleatória
-
-        caminho = "./src/ordem-aleatoria.csv";
-
-        o.embaralhar(v1);
-        o.embaralhar(v2);
-        o.embaralhar(v3);
-        o.embaralhar(v4);
-        o.embaralhar(v5);
-
-        Filme[][] aux = {v1.clone(),v2.clone(),v3.clone(),v4.clone(),v5.clone()};
-        iniciarTestes(aux);
-
-        // teste com vetor ordenado
-
-        caminho = "./src/ordenado.csv";
-
-        o.quickSort(v1);
-        o.quickSort(v2);
-        o.quickSort(v3);
-        o.quickSort(v4);
-        o.quickSort(v5);
-
-        aux[0] = v1.clone();
-        aux[1] = v2.clone();
-        aux[2] = v3.clone();
-        aux[3] = v4.clone();
-        aux[4] = v5.clone();
-        iniciarTestes(aux);
-
-        // teste com vetor ordem inversa
-
-        caminho = "./src/ordem-inversa.csv";
-
-        System.out.println(o.checaVetorOrdenado(v1));
-        System.out.println(o.checaVetorOrdenado(v2));
-        System.out.println(o.checaVetorOrdenado(v3));
-        System.out.println(o.checaVetorOrdenado(v4));
-        System.out.println(o.checaVetorOrdenado(v5));
-
-        o.quickSort(v1);
-        o.quickSort(v2);
-        o.quickSort(v3);
-        o.quickSort(v4);
-        o.quickSort(v5);
-
-        System.out.println(o.checaVetorOrdenado(v1));
-        System.out.println(o.checaVetorOrdenado(v2));
-        System.out.println(o.checaVetorOrdenado(v3));
-        System.out.println(o.checaVetorOrdenado(v4));
-        System.out.println(o.checaVetorOrdenado(v5));
-
-        o.inverterVetor(v1);
-        o.inverterVetor(v2);
-        o.inverterVetor(v3);
-        o.inverterVetor(v4);
-        o.inverterVetor(v5);
-
-        System.out.println(o.checaVetorOrdenado(v1));
-        System.out.println(o.checaVetorOrdenado(v2));
-        System.out.println(o.checaVetorOrdenado(v3));
-        System.out.println(o.checaVetorOrdenado(v4));
-        System.out.println(o.checaVetorOrdenado(v5));
-        
-        aux[0] = v1.clone();
-        aux[1] = v2.clone();
-        aux[2] = v3.clone();
-        aux[3] = v4.clone();
-        aux[4] = v5.clone();
-        iniciarTestes(aux);
+//        Ordenacao o = new Ordenacao();
+//
+//        Filme[] v1 = gerarFilmes(10_000);
+//        Filme[] v2 = gerarFilmes(20_000);
+//        Filme[] v3 = gerarFilmes(50_000);
+//        Filme[] v4 = gerarFilmes(100_000);
+//        Filme[] v5 = gerarFilmes(200_000);
+//
+//        // teste com vetor em ordem aleatória
+//
+//        caminho = "./src/ordem-aleatoria.csv";
+//
+//        o.embaralhar(v1);
+//        o.embaralhar(v2);
+//        o.embaralhar(v3);
+//        o.embaralhar(v4);
+//        o.embaralhar(v5);
+//
+//        Filme[][] aux = {v1.clone(),v2.clone(),v3.clone(),v4.clone(),v5.clone()};
+//        iniciarTestes(aux);
+//
+//        // teste com vetor ordenado
+//
+//        caminho = "./src/ordenado.csv";
+//
+//        o.quickSort(v1);
+//        o.quickSort(v2);
+//        o.quickSort(v3);
+//        o.quickSort(v4);
+//        o.quickSort(v5);
+//
+//        aux[0] = v1.clone();
+//        aux[1] = v2.clone();
+//        aux[2] = v3.clone();
+//        aux[3] = v4.clone();
+//        aux[4] = v5.clone();
+//        iniciarTestes(aux);
+//
+//        // teste com vetor ordem inversa
+//
+//        caminho = "./src/ordem-inversa.csv";
+//
+//        System.out.println(o.checaVetorOrdenado(v1));
+//        System.out.println(o.checaVetorOrdenado(v2));
+//        System.out.println(o.checaVetorOrdenado(v3));
+//        System.out.println(o.checaVetorOrdenado(v4));
+//        System.out.println(o.checaVetorOrdenado(v5));
+//
+//        o.quickSort(v1);
+//        o.quickSort(v2);
+//        o.quickSort(v3);
+//        o.quickSort(v4);
+//        o.quickSort(v5);
+//
+//        System.out.println(o.checaVetorOrdenado(v1));
+//        System.out.println(o.checaVetorOrdenado(v2));
+//        System.out.println(o.checaVetorOrdenado(v3));
+//        System.out.println(o.checaVetorOrdenado(v4));
+//        System.out.println(o.checaVetorOrdenado(v5));
+//
+//        o.inverterVetor(v1);
+//        o.inverterVetor(v2);
+//        o.inverterVetor(v3);
+//        o.inverterVetor(v4);
+//        o.inverterVetor(v5);
+//
+//        System.out.println(o.checaVetorOrdenado(v1));
+//        System.out.println(o.checaVetorOrdenado(v2));
+//        System.out.println(o.checaVetorOrdenado(v3));
+//        System.out.println(o.checaVetorOrdenado(v4));
+//        System.out.println(o.checaVetorOrdenado(v5));
+//
+//        aux[0] = v1.clone();
+//        aux[1] = v2.clone();
+//        aux[2] = v3.clone();
+//        aux[3] = v4.clone();
+//        aux[4] = v5.clone();
+//        iniciarTestes(aux);
     }
 
     public static void escreverArquivo(long[] resultados, String nome) {
@@ -161,5 +163,33 @@ public class Main {
         resultados[3] = testeCounting(v4.clone());
         resultados[4] = testeCounting(v5.clone());
         escreverArquivo(resultados, "CountingSort");
+    }
+
+    public static void testeBusca() {
+        caminho = "./src/busca.csv";
+
+        Filme[] v1 = gerarFilmes(5_000);
+
+        for (int i = 0; i < v1.length; i++) {
+            v1[i].setNota(1);
+        }
+
+        v1[4999].setNota(5);
+
+        long[] aux = new long[1];
+        aux[0] = testeLinearIterativo(v1, 5);
+        escreverArquivo(aux, "linearIterativo");
+
+        aux[0] = testeLinearRecursivo(v1, 5);
+        escreverArquivo(aux, "linearRecursivo");
+
+        aux[0] = testeBinarioIterativo(v1, 5);
+        escreverArquivo(aux, "binarioIterativo");
+
+        aux[0] = testeBinarioRecursivo(v1, 5);
+        escreverArquivo(aux, "binarioRecursivo");
+
+        aux[0] = testeLinearIterativo2Pontas(v1, 5);
+        escreverArquivo(aux, "linearIterativo2Pontas");
     }
 }
