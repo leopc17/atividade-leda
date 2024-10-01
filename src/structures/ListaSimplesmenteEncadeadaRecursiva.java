@@ -1,11 +1,12 @@
 package structures;
 
+import entities.Filme;
 import interfaces.LinkedList;
 
-public class ListaSimplesmenteEncadeadaRecursiva<T> implements LinkedList<T> {
+public class ListaSimplesmenteEncadeadaRecursiva implements LinkedList {
 
-    protected T dado;
-    protected ListaSimplesmenteEncadeadaRecursiva<T> prox;
+    protected Filme dado;
+    protected ListaSimplesmenteEncadeadaRecursiva prox;
 
     @Override
     public boolean isEmpty() {
@@ -22,45 +23,55 @@ public class ListaSimplesmenteEncadeadaRecursiva<T> implements LinkedList<T> {
     }
 
     @Override
-    public T search(T element) {
+    public Filme search(int id) {
         if (isEmpty()) {
             return null;
         } else {
-            if (element == dado) {
+            if (dado.getId() == id) {
                 return dado;
             } else {
-                return prox.search(element);
+                return prox.search(id);
             }
         }
     }
 
     @Override
-    public void insert(T element) {
+    public void insert(Filme f) {
         if (isEmpty()) {
-            dado = element;
-            prox = new ListaSimplesmenteEncadeadaRecursiva<>();
+            dado = f;
+            prox = new ListaSimplesmenteEncadeadaRecursiva();
         } else {
-            prox.insert(element);
+            prox.insert(f);
         }
     }
 
     @Override
-    public void remove(T element) {
+    public void remove(int id) {
         if (isEmpty()) {
             return;
         } else {
-            if (dado == element) {
+            if (dado.getId() == id) {
                 dado = prox.dado;
                 prox = prox.prox;
             } else {
-                prox.remove(element);
+                prox.remove(id);
             }
         }
     }
 
     @Override
-    public T[] toArray() {
-        return null;
+    public Filme[] toArray() {
+        int t = size();
+        Filme[] resultado = new Filme[t];
+        toArray(resultado, this, 0);
+        return resultado;
+    }
+
+    private void toArray(Filme[] array, ListaSimplesmenteEncadeadaRecursiva no, int indice) {
+        if (!no.isEmpty()) {
+            array[indice] = no.dado;
+            toArray(array, no.prox, indice + 1);
+        }
     }
 
     @Override
@@ -68,7 +79,7 @@ public class ListaSimplesmenteEncadeadaRecursiva<T> implements LinkedList<T> {
         if (isEmpty()) {
             System.out.println();
         } else {
-            System.out.print(dado + " ");
+            System.out.print(dado + ", ");
             prox.print();
         }
     }

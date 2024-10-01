@@ -1,11 +1,13 @@
 package interfaces;
 
-public interface LinkedList<T> {
+import entities.Filme;
+
+public interface LinkedList {
     boolean isEmpty();
     int size();
-    T search(T element);
-    void insert(T element);
-    void remove(T element);
-    T[] toArray();
+    Filme search(int id);
+    void insert(Filme f);
+    void remove(int id);
+    Filme[] toArray();
     void print();
 }
