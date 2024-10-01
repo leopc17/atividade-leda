@@ -3,14 +3,25 @@ package entities;
 import interfaces.Filme_IF;
 
 public class Filme implements Filme_IF {
+
+    private int id;
     private String nome;
     private int nota;
     private int ano;
 
-    public Filme(String nome, int nota, int ano) {
+    public Filme(String nome, int nota, int ano, int id) {
         this.nome = nome;
         this.nota = nota;
         this.ano = ano;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
