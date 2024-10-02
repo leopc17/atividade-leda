@@ -1,7 +1,7 @@
-package atividade02;
+package interfaces;
 
 /*
- * Interface para implementação da classe "Fila",
+ * Interface para implementaï¿½ï¿½o da classe "Fila",
  * a qual deve ser implementada com duas pilhas
  */
 public interface Fila_IF  {
