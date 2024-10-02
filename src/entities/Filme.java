@@ -4,24 +4,30 @@ import interfaces.Filme_IF;
 
 public class Filme implements Filme_IF {
 
-    private int id;
+    private long ID;
     private String nome;
     private int nota;
     private int ano;
 
-    public Filme(String nome, int nota, int ano, int id) {
+    public Filme() {
+
+    }
+
+    public Filme(String nome, int nota, int ano, int ID) {
         this.nome = nome;
         this.nota = nota;
         this.ano = ano;
-        this.id = id;
+        this.ID = ID;
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public long getID() {
+        return ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public void setID(long ID) {
+        this.ID = ID;
     }
 
     public String getNome() {
