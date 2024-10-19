@@ -153,4 +153,16 @@ public class ListaEncadeada implements Lista_IF {
             System.out.println(aux.dado);
         }
     }
+
+    public Filme_IF[] toArray() {
+        Filme_IF[] vetor = new Filme_IF[size()];
+        NoLE aux = head;
+        int contador = 0;
+        while (!aux.isNIL()) {
+            vetor[contador] = aux.dado;
+            aux = aux.prox;
+            contador++;
+        }
+        return vetor;
+    }
 }
