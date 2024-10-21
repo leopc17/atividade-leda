@@ -56,17 +56,11 @@ public class Filme implements Filme_IF {
 
     @Override
     public int compareTo(Filme_IF o) {
-        if (this.nota != o.getNota()) {
-            return Integer.compare(this.nota, o.getNota()) * (-1);
-        } else if (this.ano != o.getAno()) {
-            return Integer.compare(this.ano, o.getAno());
-        } else {
-            return this.nome.compareTo(o.getNome());
-        }
+        return Long.compare(this.ID, o.getID());
     }
 
     @Override
     public String toString() {
-        return getNome() + " (" + getAno() +") [" + getNota() + "]";
+        return getNome() + " (" + getAno() +") [" + getNota() + "] {" + getID() + "}";
     }
 }
