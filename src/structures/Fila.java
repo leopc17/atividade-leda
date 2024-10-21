@@ -3,16 +3,19 @@ package structures;
 import interfaces.Fila_IF;
 import interfaces.Filme_IF;
 
-import java.security.PKCS12Attribute;
-
 public class Fila implements Fila_IF {
 
     private final Pilha p1;
     private final Pilha p2;
+    private int size;
 
     public Fila() {
         this.p1 = new Pilha();
         this.p2 = new Pilha();
+    }
+
+    public int getSize() {
+        return size;
     }
 
     @Override
@@ -28,12 +31,14 @@ public class Fila implements Fila_IF {
         while (!p2.isEmpty()) {
             p1.push(p2.pop());
         }
+        size--;
         return aux;
     }
 
     @Override
     public void enqueue(Filme_IF elemento) {
         p1.push(elemento);
+        size++;
     }
 
     @Override
