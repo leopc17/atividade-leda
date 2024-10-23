@@ -170,7 +170,8 @@ public class ABB implements BST_IF {
 
     @Override
     public boolean isComplete() {
-        return false;
+        int nos = (int) Math.pow(2, height(raiz) + 1) - 1; // equação: 2^(h+1) - 1
+        return size() == nos;
     }
 
     @Override
