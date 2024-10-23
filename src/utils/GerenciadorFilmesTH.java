@@ -21,7 +21,7 @@ public class GerenciadorFilmesTH implements GerenciadorFilmes_IF {
     }
 
     @Override
-    public void ordenar() {
-
+    public Filme_IF[] ordenar() {
+        return new Filme_IF[0];
     }
 }
