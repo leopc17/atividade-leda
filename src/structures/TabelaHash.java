@@ -20,6 +20,22 @@ public class TabelaHash implements TabelaHash_IF {
         return (int) (ID % t.length);
     }
 
+    public Filme_IF[] toArray() {
+        if (isEmpty()) {
+            return new Filme_IF[0];
+        }
+
+        ListaEncadeada aux = new ListaEncadeada();
+        for (int i = 0; i < tam; i++) {
+            Filme_IF[] vetor = t[i].toArray();
+            for (int j = 0; j < vetor.length; j++) {
+                aux.insert(vetor[j]);
+            }
+        }
+
+        return aux.toArray();
+    }
+
     @Override
     public Filme_IF remove(long id) throws Exception {
         int indice = hash(id);
