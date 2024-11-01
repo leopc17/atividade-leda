@@ -27,43 +27,40 @@ public class FilaTest {
         fila.enqueue(filme1);
         fila.enqueue(filme2);
 
-        // Testa se o primeiro elemento enfileirado é removido primeiro (FIFO)
+        // testa a lógica do FIFO
         assertEquals(filme1, fila.dequeue());
         assertEquals(filme2, fila.dequeue());
     }
 
     @Test
-    public void testIsEmpty() {
-        // Testa se a fila está vazia após a criação
-        assertTrue(fila.isEmpty());
+    public void testVazia() {
+        assertTrue(fila.isEmpty()); // testa se a fila está vazia
     }
 
     @Test
-    public void testNaoIsEmpty() {
-        // Adiciona um elemento e verifica se isEmpty retorna false
+    public void testNaoVazia() {
         fila.enqueue(filme1);
-        assertFalse(fila.isEmpty());
+        assertFalse(fila.isEmpty()); // testa se a fila não é vazia após a inserção
     }
 
     @Test
     public void testHead() throws Exception {
-        // Testa se o head retorna o elemento no início da fila sem removê-lo
         fila.enqueue(filme1);
         fila.enqueue(filme2);
 
         assertEquals(filme1, fila.head());
-        assertEquals(filme1, fila.dequeue()); // Confirma que o head não remove o elemento
+        assertEquals(filme1, fila.dequeue()); // verifica se o head apenas retorna o elemento sem removê-lo
     }
 
+    // deve lançar exceção caso a fila esteja vazia
     @Test(expected = Exception.class)
-    public void testDequeueFromEmptyQueue() throws Exception {
-        // Testa se dequeue lança exceção quando a fila está vazia
+    public void testDequeueFilaVazia() throws Exception {
         fila.dequeue();
     }
 
+    // deve lançar exceção caso o head da fila vazia seja acessado
     @Test(expected = Exception.class)
     public void testHeadFromEmptyQueue() throws Exception {
-        // Testa se head lança exceção quando a fila está vazia
         fila.head();
     }
 }

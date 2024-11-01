@@ -9,7 +9,6 @@ import structures.TabelaHash;
 
 import static org.junit.Assert.*;
 
-// Suponha que a classe a ser testada seja chamada TabelaHash e implemente TabelaHash_IF
 public class TabelaHashTest {
 
     private TabelaHash_IF tabelaHash;
@@ -28,11 +27,11 @@ public class TabelaHashTest {
     }
 
     @Test
-    public void testInsertAndSearch() throws Exception {
+    public void testInsercaoEBusca() throws Exception {
         tabelaHash.insert(filme1);
         tabelaHash.insert(filme2);
 
-        // Verifica se os elementos foram inseridos e podem ser encontrados
+        // verifica se os elementos inseridos podem ser encontrados
         assertEquals(filme1, tabelaHash.search(1));
         assertEquals(filme2, tabelaHash.search(10));
     }
@@ -42,38 +41,35 @@ public class TabelaHashTest {
         tabelaHash.insert(filme1);
         tabelaHash.insert(filme2);
 
-        // Remove filme1 e verifica se ele foi removido
+        // remove o filme1 e verifica se ele foi removido
         assertEquals(filme1, tabelaHash.remove(1));
-        assertThrows(Exception.class, () -> tabelaHash.search(1)); // Deve lançar exceção ao buscar ID removido
+        assertThrows(Exception.class, () -> tabelaHash.search(1)); // deve lançar exceção ao buscar um id que não existe
     }
 
     @Test
-    public void testIsEmptyTrueWhenEmpty() {
-        // Verifica se a tabela está vazia inicialmente
-        assertTrue(tabelaHash.isEmpty());
+    public void testVazia() {
+        assertTrue(tabelaHash.isEmpty()); // verifica se a tabela está vazia
     }
 
     @Test
-    public void testIsEmptyFalseWhenNotEmpty() {
-        // Insere um elemento e verifica se isEmpty retorna false
+    public void testNaoVazia() {
         tabelaHash.insert(filme1);
-        assertFalse(tabelaHash.isEmpty());
+        assertFalse(tabelaHash.isEmpty()); // verifica se não está vazia após uma inserção
     }
 
     @Test
     public void testPrint() {
-        // Insere os filmes em posições específicas da tabela
-        tabelaHash.insert(filme1); // ID 1
-        tabelaHash.insert(filme2); // ID 10
-        tabelaHash.insert(filme3); // ID 3
-        tabelaHash.insert(filme4); // ID 15
+        tabelaHash.insert(filme1); // id = 1
+        tabelaHash.insert(filme2); // id = 10
+        tabelaHash.insert(filme3); // id = 3
+        tabelaHash.insert(filme4); // id = 15
 
-        // Com base na função hash ID % 8, temos as seguintes posições esperadas:
-        // filme1 (ID 1) -> posição 1
-        // filme2 (ID 10) -> posição 2
-        // filme3 (ID 3) -> posição 3
-        // filme4 (ID 15) -> posição 7
-        String expectedPrint =
+        // Com base na função hash (id % t.lenght), temos as seguintes posições esperadas:
+        // filme1 (id = 1) -> posição 1
+        // filme2 (id = 10) -> posição 2
+        // filme3 (id = 3) -> posição 3
+        // filme4 (id = 15) -> posição 7
+        String str =
                 "0: \n" +
                         "1: Filme 1 (2022) [8] {1}\n" +
                         "2: Filme 2 (2021) [7] {10}\n" +
@@ -83,18 +79,18 @@ public class TabelaHashTest {
                         "6: \n" +
                         "7: Filme 4 (2022) [6] {15}\n";
 
-        assertEquals(expectedPrint, tabelaHash.print());
+        assertEquals(str, tabelaHash.print());
     }
 
+    // deve lançar uma exceção ao tentar remover de uma tabela vazia
     @Test(expected = Exception.class)
-    public void testRemoveFromEmptyTable() throws Exception {
-        // Testa se uma exceção é lançada ao tentar remover de uma tabela vazia
+    public void testRemoveVazio() throws Exception {
         tabelaHash.remove(1);
     }
 
+    // deve lançar uma exceção ao tentar buscar em uma tabela vazia
     @Test(expected = Exception.class)
-    public void testSearchInEmptyTable() throws Exception {
-        // Testa se uma exceção é lançada ao tentar buscar em uma tabela vazia
+    public void testBuscaVazio() throws Exception {
         tabelaHash.search(1);
     }
 }
