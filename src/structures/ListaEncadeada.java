@@ -18,14 +18,14 @@ public class ListaEncadeada implements Lista_IF {
 
         if (!(head.isNIL())) {
             aux = head;
-            head = head.prox;
+            head = head.getProx();
             if(head.isNIL()) {
                 tail = head;
             }
-            head.ant = new NoLE();
+            head.setProx(new NoLE());
         }
 
-        return aux.dado;
+        return aux.getDado();
     }
 
     @Override
@@ -34,34 +34,34 @@ public class ListaEncadeada implements Lista_IF {
             throw new Exception("A lista está vazia");
         }
 
-        if (head.dado.getID() == id) {
+        if (head.getDado().getID() == id) {
             return removeFirst();
         } else {
             NoLE aux = head;
 
-            while (!(aux.isNIL()) && aux.dado.getID() != id) {
-                aux = aux.prox;
+            while (!(aux.isNIL()) && aux.getDado().getID() != id) {
+                aux = aux.getProx();
             }
 
             if (!(aux.isNIL())) {
-                aux.ant.prox = aux.prox;
-                if (!aux.prox.isNIL()) {
-                    aux.prox.ant = aux.ant; // Checa se não é o último elemento
+                aux.getAnt().setProx(aux.getProx());
+                if (!aux.getProx().isNIL()) {
+                    aux.getProx().setAnt(aux.getAnt()); // Checa se não é o último elemento
                 } else {
-                    tail = aux.ant; // Atualiza o tail se for o último nó
+                    tail = aux.getAnt(); // Atualiza o tail se for o último nó
                 }
             }
 
-            return aux.dado;
+            return aux.getDado();
         }
     }
 
     @Override
     public void insert(Filme_IF elemento) {
         NoLE novo = new NoLE(elemento);
-        novo.ant = tail;
-        novo.prox = new NoLE();
-        tail.prox = novo;
+        novo.setAnt(tail);
+        novo.setProx(new NoLE());
+        tail.setProx(novo);
 
         if(tail.isNIL()) {
             head = novo;
@@ -83,19 +83,19 @@ public class ListaEncadeada implements Lista_IF {
         NoLE aux1 = head;
         NoLE aux2 = tail;
 
-        while (aux1 != aux2 && aux1.prox != aux2 && aux1.dado.getID() != id && aux2.dado.getID() != id) {
-            aux1 = aux1.prox;
-            aux2 = aux2.ant;
+        while (aux1 != aux2 && aux1.getProx() != aux2 && aux1.getDado().getID() != id && aux2.getDado().getID() != id) {
+            aux1 = aux1.getProx();
+            aux2 = aux2.getAnt();
         }
 
-        if (aux1.dado.getID() != id && aux2.dado.getID() != id) {
+        if (aux1.getDado().getID() != id && aux2.getDado().getID() != id) {
             throw new Exception("o ID não foi encontrado");
         }
 
-        if (aux1.dado.getID() == id) {
-            return aux1.dado;
+        if (aux1.getDado().getID() == id) {
+            return aux1.getDado();
         } else {
-            return aux2.dado;
+            return aux2.getDado();
         }
     }
 
@@ -105,7 +105,7 @@ public class ListaEncadeada implements Lista_IF {
             throw new Exception("A lista está vazia");
         }
 
-        return head.dado;
+        return head.getDado();
     }
 
     @Override
@@ -114,7 +114,7 @@ public class ListaEncadeada implements Lista_IF {
             throw new Exception("A lista está vazia");
         }
 
-        return tail.dado;
+        return tail.getDado();
     }
 
     @Override
@@ -123,7 +123,7 @@ public class ListaEncadeada implements Lista_IF {
         NoLE aux = head;
         while (!(aux.isNIL())) {
             size++;
-            aux = aux.prox;
+            aux = aux.getProx();
         }
         return size;
     }
@@ -133,11 +133,11 @@ public class ListaEncadeada implements Lista_IF {
             System.out.println();
         } else {
             NoLE aux = head;
-            while (!(aux.prox.isNIL())) {
-                System.out.print(aux.dado + ", ");
-                aux = aux.prox;
+            while (!(aux.getProx().isNIL())) {
+                System.out.print(aux.getDado() + ", ");
+                aux = aux.getProx();
             }
-            System.out.println(aux.dado);
+            System.out.println(aux.getDado());
         }
     }
 
@@ -146,11 +146,11 @@ public class ListaEncadeada implements Lista_IF {
             System.out.println();
         } else {
             NoLE aux = tail;
-            while (!(aux.ant.isNIL())) {
-                System.out.print(aux.dado + ", ");
-                aux = aux.ant;
+            while (!(aux.getAnt().isNIL())) {
+                System.out.print(aux.getDado() + ", ");
+                aux = aux.getAnt();
             }
-            System.out.println(aux.dado);
+            System.out.println(aux.getDado());
         }
     }
 
@@ -159,8 +159,8 @@ public class ListaEncadeada implements Lista_IF {
         NoLE aux = head;
         int contador = 0;
         while (!aux.isNIL()) {
-            vetor[contador] = aux.dado;
-            aux = aux.prox;
+            vetor[contador] = aux.getDado();
+            aux = aux.getProx();
             contador++;
         }
         return vetor;

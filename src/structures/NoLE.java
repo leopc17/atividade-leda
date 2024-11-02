@@ -4,9 +4,9 @@ import interfaces.Filme_IF;
 
 public class NoLE {
 
-    protected Filme_IF dado;
-    protected NoLE prox;
-    protected NoLE ant;
+    private Filme_IF dado;
+    private NoLE prox;
+    private NoLE ant;
 
     public NoLE() {
 
@@ -14,6 +14,30 @@ public class NoLE {
 
     public NoLE(Filme_IF dado) {
         this.dado = dado;
+    }
+
+    public Filme_IF getDado() {
+        return dado;
+    }
+
+    public void setDado(Filme_IF dado) {
+        this.dado = dado;
+    }
+
+    public NoLE getProx() {
+        return prox;
+    }
+
+    public void setProx(NoLE prox) {
+        this.prox = prox;
+    }
+
+    public NoLE getAnt() {
+        return ant;
+    }
+
+    public void setAnt(NoLE ant) {
+        this.ant = ant;
     }
 
     public boolean isNIL() {
