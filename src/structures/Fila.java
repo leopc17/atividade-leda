@@ -64,9 +64,34 @@ public class Fila implements Fila_IF {
         return aux;
     }
 
+    public Filme_IF buscar(long id) throws Exception {
+        if (isEmpty()) {
+            throw new Exception("Fila vazia");
+        }
+
+        Filme_IF aux = null;
+
+        while (!p1.isEmpty()) {
+            if (p1.top().getID() == id) {
+                aux = p1.top();
+            }
+
+            p2.push(p1.pop());
+        }
+
+        while (!p2.isEmpty()) {
+            p1.push(p2.pop());
+        }
+
+        if (aux != null) {
+            return aux;
+        } else {
+            throw new Exception("ID não encontrado");
+        }
+    }
+
     public void print() throws Exception {
         Filme_IF ultimoFila = p1.top();
-//        System.out.println("TOP = " + ultimoFila);
 
         while (!p1.isEmpty()) {
             p2.push(p1.pop());

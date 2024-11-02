@@ -17,23 +17,7 @@ public class GerenciadorFilmesFila implements GerenciadorFilmes_IF {
 
     @Override
     public Filme_IF buscar(long id) throws Exception {
-        Fila_IF aux = new Fila();
-
-        while (fila.head().getID() != id || fila.isEmpty()) {
-            aux.enqueue(fila.dequeue());
-        }
-
-        if (fila.isEmpty()) {
-            throw new Exception("ID não encontrado");
-        }
-
-        Filme_IF filme = fila.head();
-
-        while (!(aux.isEmpty())) {
-            fila.enqueue(aux.dequeue());
-        }
-
-        return filme;
+        return fila.buscar(id);
     }
 
     @Override
