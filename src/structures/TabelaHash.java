@@ -70,28 +70,28 @@ public class TabelaHash implements TabelaHash_IF {
 
     @Override
     public String print() {
-        try {
-            return aux();
-        } catch (Exception e) {
-            return "Tabela Hash vazia!";
-        }
+        return aux();
     }
 
-    private String aux() throws Exception {
-        String str = "";
-        ListaEncadeada aux;
-        for (int i = 0; i < tam; i++) {
-            str += i + ":   ";
-            aux = t[i];
-            while (!aux.isEmpty()) {
-                if (aux.head() != null) {
-                    str += aux.head() + ", ";
+    private String aux() {
+        try {
+            String str = "";
+            ListaEncadeada aux;
+            for (int i = 0; i < tam; i++) {
+                str += i + ":   ";
+                aux = t[i];
+                while (!aux.isEmpty()) {
+                    if (aux.head() != null) {
+                        str += aux.head() + ", ";
+                    }
+                    aux.remove(aux.head().getID());
                 }
-                aux.remove(aux.head().getID());
+                str = str.substring(0, str.length()-2) + "\n";
+                str = str.replaceAll(":   ", ": ");
             }
-            str = str.substring(0, str.length()-2) + "\n";
-            str = str.replaceAll(":   ", ": ");
+            return str;
+        } catch (Exception e) {
+            return "Erro: " + e.getMessage(); // só ocorre caso haja algum erro de implementação da lista
         }
-        return str;
     }
 }
