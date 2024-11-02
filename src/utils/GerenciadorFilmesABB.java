@@ -15,12 +15,12 @@ public class GerenciadorFilmesABB implements GerenciadorFilmes_IF {
     }
 
     @Override
-    public Filme_IF buscar(int id) throws Exception {
+    public Filme_IF buscar(long id) throws Exception {
         return abb.search(id);
     }
 
     @Override
-    public Filme_IF remover(int id) throws Exception {
+    public Filme_IF remover(long id) throws Exception {
         return abb.remove(id);
     }
 

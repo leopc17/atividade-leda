@@ -16,7 +16,7 @@ public class GerenciadorFilmesFila implements GerenciadorFilmes_IF {
     }
 
     @Override
-    public Filme_IF buscar(int id) throws Exception {
+    public Filme_IF buscar(long id) throws Exception {
         Fila_IF aux = new Fila();
 
         while (fila.head().getID() != id || fila.isEmpty()) {
@@ -37,7 +37,7 @@ public class GerenciadorFilmesFila implements GerenciadorFilmes_IF {
     }
 
     @Override
-    public Filme_IF remover(int id) throws Exception {
+    public Filme_IF remover(long id) throws Exception {
         Fila_IF aux = new Fila();
 
         while (fila.head().getID() != id || fila.isEmpty()) {
@@ -63,9 +63,10 @@ public class GerenciadorFilmesFila implements GerenciadorFilmes_IF {
         int t = fila.getSize();
         Filme_IF[] vetor = new Filme[t];
 
-        Fila aux = fila;
         for (int i = 0; i < t; i++) {
-            vetor[i] = aux.dequeue();
+            Filme_IF aux = fila.dequeue();
+            vetor[i] = aux;
+            fila.enqueue(aux);
         }
 
         Ordenacao.mergeSort(vetor);

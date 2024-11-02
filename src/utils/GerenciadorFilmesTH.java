@@ -18,17 +18,19 @@ public class GerenciadorFilmesTH implements GerenciadorFilmes_IF {
     }
 
     @Override
-    public Filme_IF buscar(int id) throws Exception {
+    public Filme_IF buscar(long id) throws Exception {
         return t.search(id);
     }
 
     @Override
-    public Filme_IF remover(int id) throws Exception {
+    public Filme_IF remover(long id) throws Exception {
         return t.remove(id);
     }
 
     @Override
     public Filme_IF[] ordenar() {
-        return t.toArray();
+        Filme_IF[] aux = t.toArray();
+        Ordenacao.mergeSort(aux);
+        return aux;
     }
 }
