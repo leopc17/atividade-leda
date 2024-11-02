@@ -13,7 +13,7 @@ public class Filme implements Filme_IF {
 
     }
 
-    public Filme(String nome, int nota, int ano, int ID) {
+    public Filme(String nome, int nota, int ano, long ID) {
         this.nome = nome;
         this.nota = nota;
         this.ano = ano;
