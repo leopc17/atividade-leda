@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Ordenacao {
 
-    public boolean checaVetorOrdenado(Filme_IF[] filmes) {
+    public static boolean checaVetorOrdenado(Filme_IF[] filmes) {
         if (filmes == null || filmes.length == 1) {
             return true;
         }
