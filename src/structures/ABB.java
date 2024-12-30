@@ -198,9 +198,9 @@ public class ABB implements BST_IF {
 
     private void order(NoABB no, ListaEncadeada lista) {
         if (!no.isNIL()) {
-            preOrder(no.getEsq(), lista);
+            order(no.getEsq(), lista);
             lista.insert(no.getDado());
-            preOrder(no.getDir(), lista);
+            order(no.getDir(), lista);
         }
     }
 
